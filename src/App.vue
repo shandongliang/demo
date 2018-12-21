@@ -11,11 +11,18 @@ export default {
 </script>
 
 <style>
+*{
+  margin:0;
+  padding:0;
+}
+body, html{
+  height:100%;
+}
 #app {
   font-family: "微软雅黑";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin-top: 60px;
+  height:100%;
 }
 em {
   color:red;

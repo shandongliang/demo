@@ -14,11 +14,11 @@
         <i style="padding:0 10px"></i>
         <el-button @click="search" type="primary">搜索</el-button>
     </div>
-    <div>
+    <div style="margin:20px 0;">
       <p>共为你找到相关结果<span>6</span>条</p>
     </div>
     <div class="result-wrap">
-      <div class="result-img">
+      <div class="result-img" v-if="images.length !== 0">
         <span class="result-title">相关图片</span>
         <div class="image">
           <img v-for="(item,index) in images" :key="index" :src="require(`./images/${item}.jpg`)"/>
