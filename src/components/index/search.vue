@@ -1,0 +1,131 @@
+<template>
+  <div>
+    <div class="input-wrap">
+        <el-select v-model="value" placeholder="请选择">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value">
+          </el-option>
+        </el-select>
+        <i style="padding:0 10px"></i>
+        <el-input v-model="input"/>
+        <i style="padding:0 10px"></i>
+        <el-button type="primary">搜索</el-button>
+    </div>
+    <div>
+      <p>共为你找到相关结果<span>6</span>条</p>
+    </div>
+    <div class="result-wrap">
+      <div class="result-img">
+        <span class="result-title">相关图片</span>
+      </div>
+      <div class="result-item" v-for="(item,index) in result.KRC4" :key="index">
+        <div class="result-header">
+          <span class="result-title" v-html="item.title"></span>
+          <i class="el-icon-download"></i>
+          <el-button  class="recomend">推荐</el-button>
+        </div>
+        <div class="result-content" v-html="item.content"></div>
+        <div class="result-footer">
+          <div class="keyword-wrap">
+            <span class="keyword">关键词:</span>
+            <div v-for="(keyword,index) in item.keywords" :key="index">
+              <span v-if="index!==0" style="marginLeft:3px;">/</span>
+              <span class="result-keyword">{{keyword}}</span>
+            </div>
+          </div>
+          <div class="result-welcome">
+            人气（<span class="welcome-num">{{item.count}}</span>）
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import {result} from "../../data.js"
+export default {
+  data(){
+    return {
+      options: [{
+          value: '选项1',
+          label: '黄金糕'
+        }, {
+          value: '选项2',
+          label: '双皮奶'
+        }, {
+          value: '选项3',
+          label: '蚵仔煎'
+        }, {
+          value: '选项4',
+          label: '龙须面'
+        }, {
+          value: '选项5',
+          label: '北京烤鸭'
+        }],
+        value: '',
+        input: '',
+        result:result
+    }
+  },
+  methods:{
+
+  }
+
+}
+</script>
+
+<style>
+.input-wrap {
+  display: flex;
+}
+.result-wrap {
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+}
+.result-header {
+  display: flex;
+  align-items: center;
+}
+.result-item {
+  border-bottom: 1px dashed #797979;
+  padding:0 0 10px 0;
+}
+.result-title {
+  /* border-bottom: 1px solid #568cc0; */
+  text-decoration: underline;
+  color: #568cc0;
+}
+.el-icon-download {
+  font-size: 40px;
+  color: #568cc0;
+  margin: 0 20px;
+}
+.result-content {
+  font-size: 14px;
+  padding: 15px 0;
+}
+.result-footer {
+  display: flex;
+  justify-content: space-between;
+}
+.keyword-wrap {
+  display: flex;
+  align-items: center;
+  color: #1c8f1f;
+  font-size: 14px;
+}
+.keyword {
+  margin-right: 5px;
+}
+.result-keyword {
+  margin: 0 2px;
+}
+.result-welcome {
+  font-size: 14px;
+}
+</style>
+
