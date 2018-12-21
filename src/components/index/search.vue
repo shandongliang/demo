@@ -12,7 +12,7 @@
         <i style="padding:0 10px"></i>
         <el-input v-model="input"/>
         <i style="padding:0 10px"></i>
-        <el-button type="primary">搜索</el-button>
+        <el-button @click="search" type="primary">搜索</el-button>
     </div>
     <div>
       <p>共为你找到相关结果<span>6</span>条</p>
@@ -21,7 +21,7 @@
       <div class="result-img">
         <span class="result-title">相关图片</span>
       </div>
-      <div class="result-item" v-for="(item,index) in result.KRC4" :key="index">
+      <div class="result-item" v-for="(item,index) in result" :key="index">
         <div class="result-header">
           <span class="result-title" v-html="item.title"></span>
           <i class="el-icon-download"></i>
@@ -52,27 +52,29 @@ export default {
     return {
       options: [{
           value: '选项1',
-          label: '黄金糕'
+          label: '故障维修'
         }, {
           value: '选项2',
-          label: '双皮奶'
+          label: '内部培训'
         }, {
           value: '选项3',
-          label: '蚵仔煎'
+          label: '使用说明'
         }, {
           value: '选项4',
-          label: '龙须面'
+          label: '机械维护'
         }, {
           value: '选项5',
-          label: '北京烤鸭'
+          label: '其他'
         }],
         value: '',
         input: '',
-        result:result
+        result:[]
     }
   },
   methods:{
-
+    search() {
+      this.result = result.input
+    }
   }
 
 }
