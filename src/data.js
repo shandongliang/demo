@@ -85,32 +85,47 @@ export const result = {
 
 export const images = {
   'KRC4': [
-    '1',
-    '2',
-    '7',
-    '4',
-    '5',
-    '8'
+    '1.jpg',
+    '2.jpg',
+    '7.jpg',
+    '4.jpg',
+    '5.jpg',
+    '8.jpg'
   ]
 }
 
 export const expert = [
   {
-    img:'2',
+    img:'default.svg',
     name:'潘寿辉',
     job:'讲师',
     email:'panshouhui@qq.com'
   },
   {
-    img:'2',
+    img:'default.svg',
     name:'吴芝兰',
     job:'销售',
     email:'wuzhilan@qq.com'
   },
   {
-    img:'2',
+    img:'default.svg',
     name:'李明伟',
     job:'驻场服务',
     email:'liminwei@qq.com'
+  }
+]
+
+export const supplier = [
+  {
+    name:'卡库系统有限公司',
+    img:'default.svg',
+  },
+  {
+    name:'卡酷系统有限公司',
+    img:'default.svg',
+  },
+  {
+    name:'卡酷系统有限公司',
+    img:'default.svg',
   }
 ]

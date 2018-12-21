@@ -1,19 +1,5 @@
 <template>
   <div>
-    <div class="input-wrap">
-        <el-select v-model="value" placeholder="请选择">
-          <el-option
-            v-for="item in options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value">
-          </el-option>
-        </el-select>
-        <i style="padding:0 10px"></i>
-        <el-input v-model="input"/>
-        <i style="padding:0 10px"></i>
-        <el-button @click="search" type="primary">搜索</el-button>
-    </div>
     <div style="margin:20px 0;">
       <p>共为你找到相关结果<span>6</span>条</p>
     </div>
@@ -58,34 +44,32 @@
 <script>
 import {result, images} from '../../data.js'
 export default {
+  props: {
+    value: {
+      type: String,
+      default: ''
+    },
+    input: {
+      type: String,
+      default: ''
+    },
+  },
   data () {
     return {
-      options: [{
-        value: '选项1',
-        label: '故障维修'
-      }, {
-        value: '选项2',
-        label: '内部培训'
-      }, {
-        value: '选项3',
-        label: '使用说明'
-      }, {
-        value: '选项4',
-        label: '机械维护'
-      }, {
-        value: '选项5',
-        label: '其他'
-      }],
-      value: '',
-      input: '',
       result: [],
       images: []
     }
   },
   methods: {
-    search () {
-      this.result = result[this.input]
-      this.images = images[this.input]
+    // search () {
+    //   this.result = result[this.input]
+    //   this.images = images[this.input]
+    // }
+  },
+  watch:{
+    input(val){
+      this.result = result[val]
+      this.images = images[val]
     }
   }
 

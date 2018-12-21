@@ -26,6 +26,16 @@
 <script>
 import {expert} from "../../data.js"
 export default {
+  props: {
+    value: {
+      type: String,
+      default: ''
+    },
+    input: {
+      type: String,
+      default: ''
+    },
+  },
   data(){
     return{
       expert:expert

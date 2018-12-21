@@ -17,12 +17,14 @@ export default {
 }
 body, html{
   height:100%;
+  min-width: 1200px;
+  font-family: "微软雅黑";
 }
 #app {
-  font-family: "微软雅黑";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height:100%;
+  padding: 0 60px;
 }
 em {
   color:red;
