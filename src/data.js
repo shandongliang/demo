@@ -82,3 +82,14 @@ export const result = {
     }
   ]
 }
+
+export const images = {
+  "KRC4":[
+    "1",
+    "2",
+    "7",
+    "4",
+    "5",
+    "8"
+  ]
+}

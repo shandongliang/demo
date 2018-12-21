@@ -20,6 +20,9 @@
     <div class="result-wrap">
       <div class="result-img">
         <span class="result-title">相关图片</span>
+        <div class="image">
+          <img v-for="(item,index) in images" :key="index" :src="require(`./images/${item}.jpg`)"/>
+        </div>
       </div>
       <div class="result-item" v-for="(item,index) in result" :key="index">
         <div class="result-header">
@@ -41,12 +44,19 @@
           </div>
         </div>
       </div>
+      <!-- <el-pagination
+          @current-change="handleCurrentChange"
+          :current-page.sync="currentPage"
+          :page-size="perPage"
+          layout="total, prev, pager, next"
+          :total="suggestData.total">
+      </el-pagination> -->
     </div>
   </div>
 </template>
 
 <script>
-import {result} from "../../data.js"
+import {result, images} from "../../data.js"
 export default {
   data(){
     return {
@@ -68,12 +78,14 @@ export default {
         }],
         value: '',
         input: '',
-        result:[]
+        result:[],
+        images:[]
     }
   },
   methods:{
     search() {
-      this.result = result.input
+      this.result = result[this.input]
+      this.images = images[this.input]
     }
   }
 
@@ -86,15 +98,27 @@ export default {
 }
 .result-wrap {
   border: 1px solid #ccc;
-  padding: 10px 20px;
+  padding: 20px 25px;
 }
 .result-header {
   display: flex;
   align-items: center;
 }
+.result-img {
+  border-bottom: 1px dashed #797979;
+}
+.image {
+  padding:20px 0;
+  display: flex;
+  justify-content: space-around;
+}
+.image img {
+  width: 100px;
+  height: 100px;
+}
 .result-item {
   border-bottom: 1px dashed #797979;
-  padding:0 0 10px 0;
+  padding:20px 0 10px 0;
 }
 .result-title {
   /* border-bottom: 1px solid #568cc0; */
