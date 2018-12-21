@@ -93,3 +93,24 @@ export const images = {
     '8'
   ]
 }
+
+export const expert = [
+  {
+    img:'2',
+    name:'潘寿辉',
+    job:'讲师',
+    email:'panshouhui@qq.com'
+  },
+  {
+    img:'2',
+    name:'吴芝兰',
+    job:'销售',
+    email:'wuzhilan@qq.com'
+  },
+  {
+    img:'2',
+    name:'李明伟',
+    job:'驻场服务',
+    email:'liminwei@qq.com'
+  }
+]
