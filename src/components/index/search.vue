@@ -52,7 +52,7 @@ export default {
     input: {
       type: String,
       default: ''
-    },
+    }
   },
   data () {
     return {
@@ -66,8 +66,8 @@ export default {
     //   this.images = images[this.input]
     // }
   },
-  watch:{
-    input(val){
+  watch: {
+    input (val) {
       this.result = result[val]
       this.images = images[val]
     }

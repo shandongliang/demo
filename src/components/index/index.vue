@@ -82,11 +82,9 @@
 </template>
 <script>
 import {result, images, expert, supplier} from '../../data.js'
-import Search from './search'
-import WordCloud from './wordCloud'
 export default {
-  data(){
-    return{
+  data () {
+    return {
       options: [{
         value: '1',
         label: '故障维修'
@@ -107,8 +105,8 @@ export default {
       input: '',
       result: [],
       images: [],
-      expert:expert,
-      supplier:supplier
+      expert: expert,
+      supplier: supplier
     }
   },
   methods: {
