@@ -56,34 +56,34 @@
 </template>
 
 <script>
-import {result, images} from "../../data.js"
+import {result, images} from '../../data.js'
 export default {
-  data(){
+  data () {
     return {
       options: [{
-          value: '选项1',
-          label: '故障维修'
-        }, {
-          value: '选项2',
-          label: '内部培训'
-        }, {
-          value: '选项3',
-          label: '使用说明'
-        }, {
-          value: '选项4',
-          label: '机械维护'
-        }, {
-          value: '选项5',
-          label: '其他'
-        }],
-        value: '',
-        input: '',
-        result:[],
-        images:[]
+        value: '选项1',
+        label: '故障维修'
+      }, {
+        value: '选项2',
+        label: '内部培训'
+      }, {
+        value: '选项3',
+        label: '使用说明'
+      }, {
+        value: '选项4',
+        label: '机械维护'
+      }, {
+        value: '选项5',
+        label: '其他'
+      }],
+      value: '',
+      input: '',
+      result: [],
+      images: []
     }
   },
-  methods:{
-    search() {
+  methods: {
+    search () {
       this.result = result[this.input]
       this.images = images[this.input]
     }
@@ -154,4 +154,3 @@ export default {
   font-size: 14px;
 }
 </style>
-

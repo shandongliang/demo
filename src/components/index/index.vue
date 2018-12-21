@@ -5,8 +5,8 @@
 import Search from './search'
 export default {
   components: {
-      'v-search': Search
-    }
+    'v-search': Search
+  }
 }
 </script>
 

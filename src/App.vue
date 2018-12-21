@@ -18,6 +18,7 @@ export default {
   margin-top: 60px;
 }
 em {
-  color:red
+  color:red;
+  font-style: normal;
 }
 </style>
