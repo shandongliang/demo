@@ -108,7 +108,7 @@
                   </div>
                 </div>
               </div>
-              <el-button size="small">呼叫支援</el-button>
+              <el-button size="small" @click="gopush">呼叫支援</el-button>
             </div>
           </div>
           <div v-if="supplier.length>0">
@@ -126,10 +126,8 @@
 </template>
 <script>
 import { result, wordCloud } from '../../data.js'
-import echarts from 'echarts/echarts'
-import 'echarts/component/title'
-import 'echarts/component/tooltip'
-import 'echarts/chart/wordCloud'
+import echarts from 'echarts'
+import 'echarts-wordcloud/dist/echarts-wordcloud.js'
 export default {
   data () {
     return {
@@ -190,10 +188,13 @@ export default {
           {
             type: 'wordCloud',
             gridSize: 8,
-            size: ['100%', '100%'],
-            textRotation: [0, 45, 90, -45],
+            shape: 'circle',
+            sizeRange: [12, 60],
+            rotationRange: [-90, 90],
+            rotationStep: 45,
             textPadding: 0,
-            shape: 'pentagon',
+            left: 'center',
+            top: 'center',
             autoSize: {
               enable: true,
               minSize: 14
@@ -212,6 +213,11 @@ export default {
       }
       chart.setOption(option)
       window.onresize = chart.resize
+    },
+    gopush () {
+      this.$router.push({
+        name: 'graph'
+      })
     },
     search () {
       if (result[this.input.toLowerCase()]) {
@@ -260,6 +266,9 @@ export default {
 </script>
 
 <style>
+.index-wrap{
+  padding: 30px 60px;
+}
 .input-wrap {
   display: flex;
   margin-right: 470px;

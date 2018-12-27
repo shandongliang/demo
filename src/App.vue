@@ -16,14 +16,13 @@ export default {
   padding:0;
 }
 body, html{
-  min-height:100%;
+  height:100%;
   font-family: "微软雅黑";
 }
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height:100%;
-  padding: 30px 60px;
 }
 em {
   color:red;

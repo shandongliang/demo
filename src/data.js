@@ -855,102 +855,102 @@ export const wordCloud = [
   {
     name: 'quantec',
     value: 150,
-    itemStyle: createRandomItemStyle()
+    textStyle: createRandomItemStyle()
   },
   {
     name: 'br205',
     value: 150,
-    itemStyle: createRandomItemStyle()
+    textStyle: createRandomItemStyle()
   },
   {
     name: 'kst',
     value: 140,
-    itemStyle: createRandomItemStyle()
+    textStyle: createRandomItemStyle()
   },
   {
     name: 'kuka',
     value: 120,
-    itemStyle: createRandomItemStyle()
+    textStyle: createRandomItemStyle()
   },
   {
     name: 'gripper',
     value: 90,
-    itemStyle: createRandomItemStyle()
+    textStyle: createRandomItemStyle()
   },
   {
     name: 'fs72',
     value: 90,
-    itemStyle: createRandomItemStyle()
+    textStyle: createRandomItemStyle()
   },
   {
     name: 'flangeforces',
     value: 80,
-    itemStyle: createRandomItemStyle()
+    textStyle: createRandomItemStyle()
   },
   {
     name: 'fs73',
     value: 70,
-    itemStyle: createRandomItemStyle()
+    textStyle: createRandomItemStyle()
   },
   {
     name: 'kr360',
     value: 40,
-    itemStyle: createRandomItemStyle()
+    textStyle: createRandomItemStyle()
   },
   {
     name: 'kr16',
     value: 40,
-    itemStyle: createRandomItemStyle()
+    textStyle: createRandomItemStyle()
   },
   {
     name: 'kr30',
     value: 40,
-    itemStyle: createRandomItemStyle()
+    textStyle: createRandomItemStyle()
   },
   {
     name: 'kr60',
     value: 40,
-    itemStyle: createRandomItemStyle()
+    textStyle: createRandomItemStyle()
   },
   {
     name: 'servogun',
     value: 30,
-    itemStyle: createRandomItemStyle()
+    textStyle: createRandomItemStyle()
   },
   {
     name: 'krc2',
     value: 20,
-    itemStyle: createRandomItemStyle()
+    textStyle: createRandomItemStyle()
   },
   {
     name: 'kr500',
     value: 20,
-    itemStyle: createRandomItemStyle()
+    textStyle: createRandomItemStyle()
   },
   {
     name: 'fa71',
     value: 20,
-    itemStyle: createRandomItemStyle()
+    textStyle: createRandomItemStyle()
   },
   {
     name: 'ub63',
     value: 40,
-    itemStyle: createRandomItemStyle()
+    textStyle: createRandomItemStyle()
   },
   {
     name: 'cable',
     value: 20,
-    itemStyle: createRandomItemStyle()
+    textStyle: createRandomItemStyle()
   },
   {
     name: 'ro150',
     value: 20,
-    itemStyle: createRandomItemStyle()
+    textStyle: createRandomItemStyle()
   },
   {
     name: '250rb100',
     value: 40,
-    itemStyle: createRandomItemStyle()
+    textStyle: createRandomItemStyle()
   }
 ]
 function createRandomItemStyle () {
