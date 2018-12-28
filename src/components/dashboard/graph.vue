@@ -1,6 +1,8 @@
 <template>
-  <div>
-    <div id="main" ref="mains" style="width: 1280px;height:800px;"></div>
+  <div class="detail-content">
+    <div class="graphDetail">
+      <div id="main" ref="mains" style="width:100%;height:800px"></div>
+    </div>
   </div>
 </template>
 
@@ -25,10 +27,12 @@ export default {
         title: {
           text: 'DataMix',
           top: 'top',
-          left: 'left'
+          left: 'left',
+          textStyle: {color: 'white'}
         },
         color: ['#4472C5', '#ED7C30', '#80FF80', '#FF8096', '#800080', '#03a9f4'],
         legend: {
+          textStyle: {color: 'white'},
           data: ['人员', '其他', '标准文档', '重大停机时间报告', '供应商文档', '内部培训']
         },
         // selectedMode: 'single',
@@ -97,5 +101,13 @@ export default {
 </script>
 
 <style>
-
+.detail-content {
+  background: #080e1a;
+  padding: 15px;
+  height: 100%;
+}
+.graphDetail {
+  background: #212731;
+  padding: 20px 30px;
+}
 </style>

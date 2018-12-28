@@ -1,19 +1,21 @@
 <template>
   <div class="index-wrap">
-    <img src="./images/logo.png">
-    <div class="input-wrap">
-      <el-select v-model="value" placeholder="请选择" @change="change">
-        <el-option
-          v-for="item in options"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value"
-        ></el-option>
-      </el-select>
-      <i style="padding:0 10px"></i>
-      <el-input v-model="input" @keyup.enter.native="search"/>
-      <i style="padding:0 10px"></i>
-      <el-button @click="search" type="primary">搜索</el-button>
+    <div class="input-boxes">
+      <div class="input-wrap">
+        <el-select v-model="value" placeholder="请选择" @change="change">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          ></el-option>
+        </el-select>
+        <i style="padding:0 10px"></i>
+        <el-input v-model="input" @keyup.enter.native="search"/>
+        <i style="padding:0 10px"></i>
+        <el-button @click="search" type="primary">搜索</el-button>
+      </div>
+      <div class="space-index"></div>
     </div>
       <div style="margin:20px 0;" v-if="totalList.length>0">
         <p>共为你找到相关结果
@@ -27,7 +29,8 @@
       <div class="body-wrap" >
         <div class="result-wrap" v-if="totalList.length>0">
           <div class="result-img" v-if="images.length !== 0">
-            <span class="result-title" style="margin-bottom:10px;display:inline-block;">相关图片</span>
+            <div class="result-title" style="margin-bottom:10px;display:inline-block;">相关图片</div>
+            <div style="clear:both"></div>
             <div class="image" v-if="!showphone">
               <!-- <div class="prevbtn" @click="goPrev">
                 <i class="el-icon-arrow-left"></i>
@@ -88,7 +91,7 @@
           <div>
             <span style="font-weight:600;margin-bottom:15px;display: inline-block;">热门查询</span>
             <div>
-              <div id="main" ref="main" style="width:400px;height:400px;"></div>
+              <div id="main" ref="main" style="width:320px;height:320px;"></div>
             </div>
           </div>
           <div v-if="expert.length>0">
@@ -189,7 +192,7 @@ export default {
             type: 'wordCloud',
             gridSize: 8,
             shape: 'circle',
-            sizeRange: [12, 60],
+            sizeRange: [12, 40],
             rotationRange: [-90, 90],
             rotationStep: 45,
             textPadding: 0,
@@ -267,15 +270,19 @@ export default {
 
 <style>
 .index-wrap{
-  padding: 30px 60px;
+  padding: 30px;
+}
+.input-boxes {
+  display: flex;
+  flex-direction: row;
 }
 .input-wrap {
   display: flex;
-  margin-right: 470px;
+  flex:1;
 }
-#main{
-  width:400px;
-  height:400px;
+.space-index{
+  width:360px;
+  margin-left:30px;
 }
 .body-wrap {
   display: flex;
@@ -286,6 +293,7 @@ export default {
   padding: 20px 25px 40px 25px;
   flex-grow: 1;
   position: relative;
+  background: #fff;
 }
 .result-header {
   display: flex;
@@ -293,12 +301,13 @@ export default {
 }
 .result-img {
   border-bottom: 1px dashed #797979;
+  display: inline-block;
+  width:100%;
 }
 .image {
-  padding: 20px 30px;
-  display: flex;
-  justify-content: space-around;
+  padding: 20px 0;
   position: relative;
+  display: inline-block;
 }
 .backgroundImg{
   height:200px;
@@ -330,12 +339,11 @@ export default {
 }
 .image ul {
   width:100%;
-  display: flex;
-  justify-content: space-between;
 }
 .image ul li {
   list-style: none;
   float:left;
+  margin-right:15px;
 }
 .image img {
   width: 100px;
@@ -380,15 +388,17 @@ export default {
   font-size: 14px;
 }
 .right {
+  background: #fff;
   margin-left: 30px;
-  flex: 0 0 400px;
+  flex:1;
+  width: 360px;
   border: 1px solid #ccc;
   padding: 20px;
 }
 .expert-item {
   display: flex;
   align-items: center;
-  padding: 20px 10px;
+  padding: 20px 10px 20px 0;
   justify-content: space-between;
 }
 .expert-item-left {
@@ -397,8 +407,8 @@ export default {
 }
 .avatar-img {
   border-radius: 50%;
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   overflow: hidden;
 }
 .avatar-img img {
@@ -408,7 +418,7 @@ export default {
 .expert-info {
   padding: 0 15px;
   font-size: 14px;
-  width: 220px;
+  width: 190px;
 }
 .expert-email {
   text-overflow: ellipsis;
@@ -423,7 +433,7 @@ export default {
   display: flex;
   flex-direction: column;
   font-size: 14px;
-  width: 120px;
+  width: 100px;
 }
 .supplier-item img {
   width: 100%;
@@ -476,6 +486,7 @@ no-result{
     margin-left: 0;
     padding: 20px 10px;
     margin-top: 20px;
+    width:100%;
   }
   .input-wrap {
     margin-right: 0;
@@ -497,6 +508,37 @@ no-result{
   }
   #main{
     max-width:320px!important;
+    width:300px!important;
+    height:300px!important;
+  }
+  .index-wrap{
+    padding:20px 15px;
+  }
+  .space-index{
+    width:0;
+    margin-left:0;
+  }
+}
+@media (min-width: 769px) and (max-width: 992px){
+  .body-wrap {
+    flex-direction: column;
+    width: 100%;
+  }
+  .space-index{
+    width:0;
+    margin-left:0;
+  }
+  .right {
+    margin-left: 0;
+    padding: 20px 10px;
+    margin-top: 20px;
+    width:100%;
+  }
+  .expert-info{
+    width:auto;
+  }
+  #main{
+    width:100%!important;
   }
 }
 </style>

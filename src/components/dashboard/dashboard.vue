@@ -161,7 +161,7 @@ export default {
 .detail-content {
   background: #080e1a;
   padding: 15px;
-  min-height: calc(100% - 50px);
+  height: 100%;
 }
 .wordDetail {
   min-width: 800px;
