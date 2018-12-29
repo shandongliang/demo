@@ -17,17 +17,17 @@
       </div>
       <div class="space-index"></div>
     </div>
-      <div style="margin:20px 0;" v-if="totalList.length>0">
+      <div style="margin:20px 0;" v-if="totalList.length>0&&!noresult">
         <p>共为你找到相关结果
           <span>{{result.length}}</span>条
         </p>
       </div>
-      <!-- <div class="noresult">
-      <p>哎呀呀! 页面没有找到!</p>
-      <p>很抱歉, 没有匹配的。</p>
-      </div>-->
+      <div v-if="noresult" class="noresult" style="margin:20px 0;">
+        <!-- <p>哎呀呀! 页面没有找到!</p> -->
+        <p>很抱歉, 没有找到匹配的数据。</p>
+      </div>
       <div class="body-wrap" >
-        <div class="result-wrap" v-if="totalList.length>0">
+        <div class="result-wrap" v-if="totalList.length>0&&!noresult">
           <div class="result-img" v-if="images.length !== 0">
             <div class="result-title" style="margin-bottom:10px;display:inline-block;">相关图片</div>
             <div style="clear:both"></div>
@@ -54,7 +54,7 @@
                 </div>
               </div>
           </div>
-          <div  v-if="result.length > 0" class="result-item" v-for="(item,index) in result" :key="index">
+          <div v-if="result.length > 0" class="result-item" v-for="(item,index) in result" :key="index">
             <div class="result-header">
               <span class="result-title" v-html="item.title"></span>
               <a :href="item.href" :download="item.href"><i class="el-icon-download"></i></a>
@@ -74,9 +74,9 @@
               </div>
             </div>
           </div>
-          <div class="no-result" v-if="result.length === 0">
+          <!-- <div class="no-result" v-if="result.length === 0">
             <p>暂无搜索结果</p>
-          </div>
+          </div> -->
           <!-- <div class="page-result">
         <el-pagination
           @current-change="handleCurrentChange"
@@ -87,7 +87,7 @@
         </el-pagination>
           </div>-->
         </div>
-        <div class="right" v-show="totalList.length > 0">
+        <div class="right" v-show="totalList.length > 0&&!noresult">
           <div>
             <span style="font-weight:600;margin-bottom:15px;display: inline-block;">热门查询</span>
             <div>
@@ -166,7 +166,8 @@ export default {
       supplier: [],
       wordList: wordCloud,
       totalList: [],
-      showphone: false
+      showphone: false,
+      noresult: false
     }
   },
   mounted () {
@@ -224,6 +225,7 @@ export default {
     },
     search () {
       if (result[this.input.toLowerCase()]) {
+        this.noresult = false
         this.seletName = this.input.toLowerCase()
         this.images = result[this.input.toLowerCase()]['images'] || []
         this.expert = result[this.input.toLowerCase()]['experts'] || []
@@ -241,6 +243,8 @@ export default {
           this.result = this.totalList
         }
         this.getWordCloud()
+      } else {
+        this.noresult = true
       }
       // let listre = result[this.input.toLowerCase()].result || []
       // this.result = listre.slice((this.currentPage - 1) * 3, 3 * this.currentPage)

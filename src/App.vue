@@ -43,13 +43,22 @@
           @close="handleClose">
           <el-submenu :index="item.index" v-for="(item,i) in navList" :key="i">
             <template slot="title">
-              <i :class="item.icon"></i>
+              <!-- <i :class="item.icon"></i> -->
               <span>{{item.name}}</span>
             </template>
-            <el-submenu :index="item.index" v-if="item.submenu" v-for="(item,i) in item.submenu" :key="i">
-              <!-- <template slot="title">{{item.name}}</template> -->
-              <el-menu-item index="">{{item.name}}</el-menu-item>
-            </el-submenu>
+              <div v-for="(item,i) in item.submenu" :key="i">
+                <el-submenu :index="item.index" v-if="item.threemenu">
+                <template slot="title">
+                  <span>{{item.name}}</span>
+                </template>
+                  <a :href="`${item.href}`" v-for="(item,i) in item.threemenu" :key="i">
+                    <el-menu-item :index="item.index">{{item.name}}</el-menu-item>
+                  </a>
+                </el-submenu>
+                <a :href="`${item.href}`" v-else>
+                  <el-menu-item :index="item.index" >{{item.name}}</el-menu-item>
+                </a>
+              </div>
           </el-submenu>
         </el-menu>
       </div>
@@ -71,32 +80,79 @@ export default {
           name: 'Application',
           index: '1',
           icon: 'el-icon-location',
-          path: '',
           submenu: [
             {
               name: 'Remote Expert',
-              index: '1-1'
+              index: '1-1',
+              href: 'https://da.cn-north-1.datamesh.com'
+            },
+            {
+              name: 'Director',
+              index: '1-2',
+              threemenu: [
+                {
+                  name: 'Library',
+                  index: '1-2-1',
+                  href: 'https://library.cn-north-1.datamesh.com/'
+                },
+                {
+                  name: 'Rooms',
+                  index: '1-2-2',
+                  href: 'https://director.cn-north-1.datamesh.com/room'
+                }
+              ]
             },
             {
               name: 'Digital Assistant',
-              index: '1-2',
-              threemenu: []
+              index: '1-3',
+              threemenu: [
+                {
+                  name: 'Data Processing Status',
+                  index: '1-3-1',
+                  href: '#/process'
+                },
+                {
+                  name: 'Knowledge Graph',
+                  index: '1-3-2',
+                  href: '#/graph'
+                },
+                {
+                  name: 'User Interface',
+                  index: '1-3-3',
+                  href: '#/'
+                }
+              ]
+            },
+            {
+              name: 'Cognition',
+              index: '1-4',
+              href: '#/noresult'
             }
           ]
         }, {
           name: 'Management',
           index: '2',
           icon: 'el-icon-setting',
-          path: '',
           submenu: [
             {
-              name: 'Application',
-              index: '2-1'
+              name: 'User Management',
+              index: '2-1',
+              href: 'https://portal.datamesh.com/account/userinfo'
             },
             {
-              name: 'Application',
+              name: 'Role Management',
               index: '2-2',
-              threemenu: []
+              href: 'https://portal.datamesh.com/account/subaccount'
+            },
+            {
+              name: 'Organization Management',
+              index: '2-3',
+              href: 'https://portal.datamesh.com/account/license'
+            },
+            {
+              name: 'My Account',
+              index: '2-5',
+              href: 'https://portal.datamesh.com/account/license'
             }
           ]
         }
@@ -254,6 +310,9 @@ em {
   color:red;
   font-style: normal;
 }
+a {
+  text-decoration:none
+  }
 @media (max-width: 767px) {
   .main-content{
     padding:100px 0 0 0;
